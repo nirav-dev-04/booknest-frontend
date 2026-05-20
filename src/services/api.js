@@ -2,7 +2,7 @@ import axios from "axios";
 
 const api = axios.create({
 
-    baseURL: "http://localhost:9000"
+    baseURL: "https://booknest-backend-z703.onrender.com"
 });
 
 // ADD JWT TOKEN IN EVERY REQUEST
