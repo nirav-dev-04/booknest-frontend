@@ -1,0 +1,1806 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    overflow-x: hidden;
+}
+
+/* MAIN LAYOUT */
+
+.layout {
+    display: flex;
+    width: 100%;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #8b3a3a;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 22px 16px;
+    transition: width 0.3s ease;
+    box-shadow: 3px 0 12px rgba(0,0,0,0.08);
+    overflow: hidden;
+    z-index: 1000;
+}
+
+/* COLLAPSED SIDEBAR */
+
+.sidebar.collapsed {
+    width: 85px;
+}
+
+/* TOP AREA */
+
+.sidebar-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+/* LOGO */
+
+.logo {
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+/* MENU BUTTON */
+
+.menu-btn {
+    border: none;
+    background: rgba(255,255,255,0.15);
+    color: white;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.menu-btn:hover {
+    background-color: rgba(255,255,255,0.25);
+}
+
+/* LINKS */
+
+.sidebar-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* LINK STYLE */
+
+.sidebar-links a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    transition: background-color 0.25s ease;
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* HOVER */
+
+.sidebar-links a:hover {
+    background-color: rgba(255,255,255,0.14);
+}
+
+/* ACTIVE LINK */
+
+.sidebar-links a.active {
+    background-color: rgba(255,255,255,0.18);
+}
+
+/* ICON */
+
+.sidebar-links svg {
+    font-size: 18px;
+    min-width: 22px;
+}
+
+/* PAGE CONTENT */
+
+.page-container {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+    padding: 45px;
+    transition: all 0.3s ease;
+}
+
+/* PAGE TITLE */
+
+.page-title {
+    font-size: 48px;
+    margin-bottom: 35px;
+    color: #222;
+    font-weight: 700;
+}
+
+/* CARD */
+
+.card {
+    background-color: white;
+    padding: 28px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+}
+
+/* BOOK TOP */
+
+.book-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+/* BOOK TITLE */
+
+.card h2 {
+    color: #8b3a3a;
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+/* AUTHOR */
+
+.author {
+    color: #777;
+    margin-top: 5px;
+    font-size: 15px;
+}
+
+/* CATEGORY */
+
+.category {
+    background-color: #f4dede;
+    color: #8b3a3a;
+    padding: 8px 16px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* BOTTOM AREA */
+
+.book-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+/* PRICE */
+
+.price {
+    font-size: 22px;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 6px;
+}
+
+/* STOCK */
+
+.stock {
+    color: #666;
+    font-size: 15px;
+}
+
+/* BUTTON */
+
+.cart-btn {
+    border: none;
+    background-color: #8b3a3a;
+    color: white;
+    padding: 14px 22px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    transition: background-color 0.25s ease,
+                transform 0.25s ease;
+    min-width: 160px;
+}
+
+/* BUTTON HOVER */
+
+.cart-btn:hover {
+    background-color: #6f2e2e;
+    transform: scale(1.03);
+}
+
+/* FORM CONTAINER */
+
+.form-container {
+    width: 100%;
+    max-width: 460px;
+    background-color: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+/* FORM TITLE */
+
+.form-title {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: #8b3a3a;
+}
+
+/* FORM GROUP */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+/* LABEL */
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #444;
+}
+
+/* INPUT */
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: 0.25s ease;
+}
+
+/* INPUT FOCUS */
+
+.form-group input:focus {
+    border-color: #8b3a3a;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139,58,58,0.15);
+}
+
+/* SUBMIT BUTTON */
+
+.submit-btn {
+    width: 100%;
+    border: none;
+    background-color: #8b3a3a;
+    color: white;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+/* BUTTON HOVER */
+
+.submit-btn:hover {
+    background-color: #6f2e2e;
+}
+
+/* AUTH PAGE */
+
+.auth-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* AUTH HEADER */
+
+.auth-header {
+    margin-bottom: 30px;
+}
+
+/* SUBTITLE */
+
+.auth-subtitle {
+    color: #777;
+    margin-top: 8px;
+}
+
+/* ERROR */
+
+.error-text {
+    color: red;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* SUCCESS */
+
+.success-text {
+    color: green;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* LOGOUT BUTTON */
+
+.logout-btn {
+    border: none;
+    background: transparent;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    transition: background-color 0.25s ease;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+}
+
+.logout-btn:hover {
+    background-color: rgba(255,255,255,0.14);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: 85px;
+    }
+
+    .page-container {
+        margin-left: 85px;
+        width: calc(100% - 85px);
+        padding: 25px;
+    }
+
+    .page-title {
+        font-size: 34px;
+    }
+
+    .book-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-btn {
+        width: 100%;
+    }
+}
+/* =========================
+   BOOK GRID
+========================= */
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 28px;
+}
+
+/* =========================
+   MODERN BOOK CARD
+========================= */
+
+.book-card {
+    background-color: white;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.14);
+}
+
+/* =========================
+   IMAGE
+========================= */
+
+.book-image-container {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background-color: #f3f3f3;
+}
+
+.book-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.book-card:hover .book-image {
+    transform: scale(1.06);
+}
+
+/* =========================
+   DETAILS
+========================= */
+
+.book-details {
+    padding: 22px;
+}
+
+/* TITLE */
+
+.book-title {
+    font-size: 24px;
+    color: #8b3a3a;
+    margin: 12px 0 8px;
+    line-height: 1.3;
+}
+
+/* AUTHOR */
+
+.author {
+    color: #777;
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+/* CATEGORY */
+
+.category {
+    background-color: #f4dede;
+    color: #8b3a3a;
+    padding: 7px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* PRICE ROW */
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+/* PRICE */
+
+.price {
+    font-size: 26px;
+    color: #222;
+    font-weight: bold;
+}
+
+/* STOCK */
+
+.stock {
+    color: #666;
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+/* BUTTON */
+
+.cart-btn {
+    border: none;
+    background-color: #8b3a3a;
+    color: white;
+    padding: 13px 18px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.25s ease;
+}
+
+.cart-btn:hover {
+    background-color: #6f2e2e;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .books-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cart-btn {
+        width: 100%;
+    }
+}
+/* =========================
+   CART SECTION
+========================= */
+
+/* =========================
+   CART PAGE
+========================= */
+
+.cart-card {
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    margin-bottom: 25px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+}
+
+.cart-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+/* IMAGE */
+
+.cart-image-section {
+
+    flex: 0.8;
+}
+
+.cart-book-image {
+
+    width: 140px;
+    height: 180px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+}
+
+/* DETAILS */
+
+.cart-details {
+
+    flex: 2;
+
+    padding-left: 30px;
+}
+
+.cart-details h2 {
+
+    font-size: 32px;
+
+    color: #8B3A3A;
+
+    margin-bottom: 15px;
+}
+
+.cart-price {
+
+    font-size: 28px;
+
+    font-weight: bold;
+
+    margin-bottom: 10px;
+}
+
+.cart-total {
+
+    margin-top: 10px;
+
+    font-weight: bold;
+
+    color: #444;
+}
+
+/* REMOVE BUTTON */
+
+.remove-btn {
+
+    margin-top: 20px;
+
+    background: #8B3A3A;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 24px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    transition: 0.3s;
+}
+
+.remove-btn:hover {
+
+    background: #6f2d2d;
+}
+
+/* SUMMARY */
+
+.cart-summary {
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.cart-summary h2 {
+
+    margin-bottom: 20px;
+
+    font-size: 36px;
+}
+
+/* PLACE ORDER BUTTON */
+
+.submit-btn {
+
+    width: 100%;
+
+    background: #8B3A3A;
+
+    color: white;
+
+    border: none;
+
+    padding: 18px;
+
+    border-radius: 12px;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.submit-btn:hover {
+
+    background: #6f2d2d;
+}
+
+/* EMPTY CART */
+
+.empty-cart {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 60px;
+
+    text-align: center;
+}
+
+.empty-cart img {
+
+    width: 220px;
+
+    margin-bottom: 25px;
+
+    opacity: 0.9;
+}
+
+.empty-cart h2 {
+
+    font-size: 38px;
+
+    margin-bottom: 10px;
+}
+
+.empty-cart p {
+
+    color: gray;
+
+    font-size: 18px;
+}
+/* =========================
+   ORDERS PAGE
+========================= */
+
+.order-card {
+
+    background: white;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+}
+
+.order-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+/* TOP SECTION */
+
+.order-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.order-id {
+
+    font-size: 32px;
+
+    color: #8B3A3A;
+
+    font-weight: bold;
+}
+
+/* STATUS BADGE */
+
+.order-status {
+
+    padding: 8px 18px;
+
+    border-radius: 30px;
+
+    font-weight: bold;
+
+    font-size: 14px;
+
+    color: white;
+}
+
+/* PENDING */
+
+.pending {
+
+    background: #f39c12;
+}
+
+/* DELIVERED */
+
+.delivered {
+
+    background: #27ae60;
+}
+
+/* CANCELLED */
+
+.cancelled {
+
+    background: #e74c3c;
+}
+
+/* ORDER DETAILS */
+
+.order-details p {
+
+    margin-bottom: 10px;
+
+    color: #444;
+
+    font-size: 17px;
+}
+
+/* TOTAL */
+
+.order-total {
+
+    margin-top: 15px;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+    color: #222;
+}
+/* =========================================
+   ADMIN DASHBOARD
+========================================= */
+
+.analytics-grid {
+
+    display: grid;
+
+    grid-template-columns:
+            repeat(auto-fit, minmax(240px, 1fr));
+
+    gap: 25px;
+
+    margin-top: 35px;
+}
+
+.analytics-card {
+
+    background: white;
+
+    padding: 28px;
+
+    border-radius: 22px;
+
+    box-shadow:
+            0 6px 18px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+}
+
+.analytics-card:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+            0 12px 28px rgba(0,0,0,0.12);
+}
+
+.analytics-card h3 {
+
+    color: #666;
+
+    font-size: 18px;
+
+    margin-bottom: 16px;
+}
+
+.analytics-card h2 {
+
+    color: #8b3a3a;
+
+    font-size: 36px;
+
+    font-weight: bold;
+}
+
+/* =========================================
+   MOST SOLD BOOKS
+========================================= */
+
+.most-sold-section {
+
+    margin-top: 55px;
+}
+
+.section-title {
+
+    font-size: 32px;
+
+    margin-bottom: 25px;
+
+    color: #8b3a3a;
+}
+
+.sold-book-card {
+
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 18px;
+
+    margin-bottom: 18px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    box-shadow:
+            0 4px 15px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+}
+
+.sold-book-card:hover {
+
+    transform: translateY(-3px);
+}
+
+.sold-book-card h3 {
+
+    color: #333;
+
+    font-size: 22px;
+}
+
+.sold-badge {
+
+    background: #8b3a3a;
+
+    color: white;
+
+    padding: 10px 18px;
+
+    border-radius: 30px;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+/* =========================================
+   SIDEBAR IMPROVEMENTS
+========================================= */
+
+.sidebar-links a,
+.logout-btn {
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.sidebar-links a::before,
+.logout-btn::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -100%;
+
+    top: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    background:
+            rgba(255,255,255,0.08);
+
+    transition: 0.35s;
+}
+
+.sidebar-links a:hover::before,
+.logout-btn:hover::before {
+
+    left: 0;
+}
+
+/* =========================================
+   PAGE ANIMATION
+========================================= */
+
+.page-container {
+
+    animation: fadePage 0.4s ease;
+}
+
+@keyframes fadePage {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(10px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+
+    background: #8b3a3a;
+
+    border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+
+    background: #6f2e2e;
+}
+
+/* =========================================
+   RESPONSIVE ADMIN
+========================================= */
+
+@media (max-width: 768px) {
+
+    .analytics-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .analytics-card h2 {
+
+        font-size: 28px;
+    }
+
+    .sold-book-card {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 15px;
+    }
+
+    .section-title {
+
+        font-size: 26px;
+    }
+}
+
+/* =========================================
+   BETTER EMPTY STATE
+========================================= */
+
+.empty-cart img {
+
+    animation: floatImage 2.5s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+
+    0% {
+
+        transform: translateY(0);
+    }
+
+    50% {
+
+        transform: translateY(-8px);
+    }
+
+    100% {
+
+        transform: translateY(0);
+    }
+}
+
+/* =========================================
+   BUTTON IMPROVEMENTS
+========================================= */
+
+.cart-btn,
+.submit-btn,
+.remove-btn {
+
+    transition:
+            transform 0.25s ease,
+            background-color 0.25s ease,
+            box-shadow 0.25s ease;
+}
+
+.cart-btn:hover,
+.submit-btn:hover,
+.remove-btn:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+            0 8px 18px rgba(0,0,0,0.12);
+}
+
+/* =========================================
+   ORDER STATUS GLOW
+========================================= */
+
+.pending {
+
+    box-shadow:
+            0 0 10px rgba(243,156,18,0.4);
+}
+
+.delivered {
+
+    box-shadow:
+            0 0 10px rgba(39,174,96,0.4);
+}
+
+.cancelled {
+
+    box-shadow:
+            0 0 10px rgba(231,76,60,0.4);
+}
+/* =========================================
+   ADMIN ORDER PAGE
+========================================= */
+
+.admin-order-card {
+
+    background: white;
+
+    padding: 28px;
+
+    border-radius: 22px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+            0 6px 18px rgba(0,0,0,0.08);
+}
+
+.admin-order-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.admin-order-top h2 {
+
+    color: #8b3a3a;
+
+    margin-bottom: 10px;
+}
+
+.admin-order-details {
+
+    margin-bottom: 25px;
+}
+
+.admin-order-details p {
+
+    margin-bottom: 8px;
+
+    color: #555;
+}
+
+/* STATUS */
+
+.admin-status {
+
+    padding: 10px 18px;
+
+    border-radius: 30px;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: bold;
+}
+
+/* ACTIONS */
+
+.admin-actions {
+
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+/* BUTTONS */
+
+.confirm-btn,
+.cancel-btn,
+.ship-btn,
+.deliver-btn {
+
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.confirm-btn {
+
+    background: #27ae60;
+}
+
+.cancel-btn {
+
+    background: #e74c3c;
+}
+
+.ship-btn {
+
+    background: #f39c12;
+}
+
+.deliver-btn {
+
+    background: #2980b9;
+}
+
+.confirm-btn:hover,
+.cancel-btn:hover,
+.ship-btn:hover,
+.deliver-btn:hover {
+
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   ADMIN BOOKS PAGE
+========================================= */
+
+.admin-book-form {
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 22px;
+
+    margin-bottom: 40px;
+
+    box-shadow:
+            0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* FORM GRID */
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+            repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 18px;
+
+    margin-bottom: 20px;
+}
+
+/* INPUTS */
+
+.form-grid input {
+
+    padding: 15px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 12px;
+
+    font-size: 15px;
+}
+
+/* BOOK GRID */
+
+.admin-books-grid {
+
+    display: grid;
+
+    grid-template-columns:
+            repeat(auto-fill, minmax(260px, 1fr));
+
+    gap: 25px;
+}
+
+/* BOOK CARD */
+
+.admin-book-card {
+
+    background: white;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    padding-bottom: 20px;
+
+    box-shadow:
+            0 6px 18px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+}
+
+.admin-book-card:hover {
+
+    transform: translateY(-5px);
+}
+
+/* IMAGE */
+
+.admin-book-card img {
+
+    width: 100%;
+
+    height: 260px;
+
+    object-fit: cover;
+}
+
+/* TEXT */
+
+.admin-book-card h2 {
+
+    padding: 18px 18px 8px;
+
+    color: #8b3a3a;
+}
+
+.admin-book-card p {
+
+    padding: 0 18px;
+
+    margin-bottom: 10px;
+
+    color: #555;
+}
+
+/* ACTIONS */
+
+.admin-book-actions {
+
+    display: flex;
+
+    gap: 12px;
+
+    padding: 0 18px;
+
+    margin-top: 15px;
+}
+
+/* BUTTONS */
+
+.edit-btn,
+.delete-btn {
+
+    flex: 1;
+
+    border: none;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.edit-btn {
+
+    background: #2980b9;
+}
+
+.delete-btn {
+
+    background: #e74c3c;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+
+    transform: translateY(-2px);
+}
+
+/* =========================================
+   MANAGE BOOKS PAGE
+========================================= */
+
+.admin-page {
+
+    padding: 40px;
+
+    min-height: 100vh;
+
+    background: #f5f5f5;
+}
+
+/* TITLE */
+
+.page-title {
+
+    font-size: 56px;
+
+    font-weight: 700;
+
+    margin-bottom: 35px;
+
+    color: #1f1f1f;
+}
+
+/* =========================================
+   TOP FORM
+========================================= */
+
+.admin-book-form {
+
+    background: white;
+
+    padding: 24px;
+
+    border-radius: 24px;
+
+    margin-bottom: 35px;
+
+    box-shadow:
+            0 6px 18px rgba(0,0,0,0.06);
+}
+
+/* GRID */
+
+.form-grid {
+
+    display: grid;
+
+    grid-template-columns:
+            repeat(auto-fit, minmax(180px, 1fr));
+
+    gap: 16px;
+
+    margin-bottom: 20px;
+}
+
+/* INPUT */
+
+.form-grid input {
+
+    padding: 15px 18px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 14px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.25s ease;
+
+    background: white;
+}
+
+/* INPUT FOCUS */
+
+.form-grid input:focus {
+
+    border-color: #8b3a3a;
+
+    box-shadow:
+            0 0 0 3px rgba(139,58,58,0.15);
+}
+
+/* ADD BUTTON */
+
+.submit-btn {
+
+    width: 100%;
+
+    border: none;
+
+    background: #943b3b;
+
+    color: white;
+
+    padding: 16px;
+
+    border-radius: 14px;
+
+    font-size: 22px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.3s ease;
+}
+
+.submit-btn:hover {
+
+    background: #7e3030;
+}
+
+/* =========================================
+   BOOK GRID
+========================================= */
+
+.admin-books-grid {
+
+    display: grid;
+
+    grid-template-columns:
+            repeat(auto-fill, minmax(260px, 1fr));
+
+    gap: 28px;
+}
+
+/* =========================================
+   BOOK CARD
+========================================= */
+
+.admin-book-card {
+
+    background: white;
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    box-shadow:
+            0 8px 24px rgba(0,0,0,0.08);
+
+    transition: 0.3s ease;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+/* HOVER */
+
+.admin-book-card:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+            0 12px 30px rgba(0,0,0,0.14);
+}
+
+/* IMAGE */
+
+.admin-book-card img {
+
+    width: 100%;
+
+    height: 320px;
+
+    object-fit: cover;
+
+    background: #eee;
+}
+
+/* CONTENT */
+
+.admin-book-info {
+
+    padding: 18px;
+}
+
+/* TITLE */
+
+.admin-book-info h2 {
+
+    font-size: 20px;
+
+    color: #8b3a3a;
+
+    margin-bottom: 8px;
+
+    line-height: 1.4;
+}
+
+/* AUTHOR */
+
+.admin-book-info p {
+
+    font-size: 15px;
+
+    color: #666;
+
+    margin-bottom: 6px;
+}
+
+/* CATEGORY */
+
+.category-badge {
+
+    display: inline-block;
+
+    margin-top: 8px;
+
+    margin-bottom: 10px;
+
+    padding: 6px 14px;
+
+    border-radius: 30px;
+
+    background: #f3dfdf;
+
+    color: #8b3a3a;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+/* PRICE */
+
+.book-price {
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    color: #222;
+
+    margin-top: 12px;
+}
+
+/* STOCK */
+
+.book-stock {
+
+    margin-top: 5px;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+/* =========================================
+   BUTTON AREA
+========================================= */
+
+.admin-book-actions {
+
+    display: flex;
+
+    gap: 12px;
+
+    padding: 0 18px 18px;
+}
+
+/* COMMON BUTTON */
+
+.edit-btn,
+.delete-btn {
+
+    flex: 1;
+
+    border: none;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    color: white;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+}
+
+/* EDIT */
+
+.edit-btn {
+
+    background: #1e88e5;
+}
+
+/* DELETE */
+
+.delete-btn {
+
+    background: #ef5350;
+}
+
+/* HOVER */
+
+.edit-btn:hover,
+.delete-btn:hover {
+
+    transform: scale(1.03);
+
+    opacity: 0.92;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .page-title {
+
+        font-size: 38px;
+    }
+
+    .admin-page {
+
+        padding: 20px;
+    }
+
+    .admin-book-card img {
+
+        height: 260px;
+    }
+
+    .admin-book-actions {
+
+        flex-direction: column;
+    }
+}
